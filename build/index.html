@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Rubik&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200&family=Roboto&family=Rubik&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/images/Ravindra's App Logo.png">
+    <title>Grocery App</title>
+</head>
+<body>
+    <div id="container">
+        <div id="continerForm">
+            <form onsubmit="addGrocery(event)">
+                <input id="item" class="inputBox" type="text" placeholder="Enter Item Name Here" required>
+                <br>
+                <input id="qty" class="inputBox" type="number" placeholder="Enter Quantity Here" required>
+                <br>
+                <input id="status" class="inputBox" type="text" placeholder="Enter Status Here" required>
+                <br>
+                <input class="inputBox" id="btn" type="submit" value="Add Task">
+            </form>
+        </div>
+        <div id="listOfItem">
+            <table border="1px">
+                <thead class="head">
+                    <tr>
+                        <td class="serialNo">Sr.No.</td>
+                        <td class="headRow">Item</td>
+                        <td class="headRow">Quantity</td>
+                        <td class="headRow">Status</td>
+                        <td id="remarks">Remarks</td>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    let groceryArr = JSON.parse(localStorage.getItem("groceryDetails"))||[];
+
+    function addGrocery(e){
+        e.preventDefault()
+        let item = document.getElementById("item").value;
+        let qty = document.getElementById("qty").value;
+        let status = document.getElementById("status").value;
+        
+        let data = {
+            item: item,
+            qty: qty,
+            status : status
+        }
+
+        groceryArr.push(data)
+
+        localStorage.setItem("groceryDetails", JSON.stringify(groceryArr));
+
+        showItem(groceryArr);
+    } 
+
+    showItem(groceryArr);
+
+    function showItem(data){
+        document.querySelector("tbody").innerHTML = null;
+        data.forEach(function(item,index){
+            let trTag = document.createElement("tr");
+            let rowId = "R"+index
+            trTag.setAttribute("id",rowId);
+            let h4Tag = document.createElement("td");
+            h4Tag.textContent = index+1;
+            h4Tag.setAttribute("class","serialNoBody")
+            let td1 = document.createElement("td");
+            td1.textContent = item.item;
+            td1.setAttribute("class","colBody")
+            let td2 = document.createElement("td");
+            td2.textContent = item.qty;
+            td2.setAttribute("class","colBody")
+            let btn1 = document.createElement("td");
+            btn1.textContent = "Done";
+            btn1.addEventListener("click",()=> {
+                document.getElementById(rowId).style.textDecoration = "line-through";
+                document.getElementById(rowId).style.color= "blue"
+            })
+            btn1.setAttribute("class","colBodyStatus")
+            let btn = document.createElement("button");
+            btn.textContent = "Remove";
+            btn.setAttribute("class", "removeBtn");
+            btn.addEventListener("click", ()=> {
+                removeFunc(index);
+            })
+
+            trTag.append(h4Tag,td1,td2,btn1,btn);
+            document.querySelector("tbody").append(trTag)
+        })
+    }
+
+    function removeFunc(id){
+        groceryArr.splice(id,1);
+        localStorage.setItem("groceryDetails", JSON.stringify(groceryArr));
+        showItem(groceryArr);
+    }
+    
+</script>

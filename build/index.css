@@ -1,0 +1,107 @@
+body{
+    background-color:aqua;
+}
+#continerForm{
+    width: 25%;
+    height: 20em;
+    background-color: azure;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 2%;
+}
+
+#container{
+    display: flex;
+    flex-direction: row;
+    margin-left: 2%
+}
+
+.inputBox{
+    margin: 5%;
+    height: 30px;
+    width: 88%;
+    font-size: 1em;
+}
+
+#listOfItem{
+    margin-left: 10%;
+    width: 60%;
+    background-color: antiquewhite;
+    border-radius: 5px;
+    padding: 1%;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+#btn{
+    color:black;
+    background-color: aquamarine;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.head{
+    background-color:rgb(150, 247, 247);
+}
+
+.headRow{
+    width: 26%;
+    text-align: center;
+    font-weight: bolder;
+    height: 40px;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Rubik', sans-serif;
+}
+.serialNo{
+    width: 15%;
+    text-align: center;
+    font-weight: bolder;
+    height: 40px;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Rubik', sans-serif;
+}
+#remarks{
+    width: 26%;
+    text-align: center;
+    font-weight: bolder;
+    height: 40px;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Rubik', sans-serif;
+}
+.serialNoBody{
+    width: 15%;
+    text-align: center;
+    height: 40px;
+    font-size: 20px;
+    font-family: 'Nunito Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Rubik', sans-serif;
+}
+
+.colBody{
+    text-align: center;
+    height: 40px;
+    font-size: 18px;
+    font-family: 'Nunito Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Rubik', sans-serif;
+}
+
+.removeBtn{
+    text-align: center;
+    height: 40px;
+    font-size: 18px;
+    cursor: pointer;
+    background-color: red;
+}
+.colBodyStatus{
+    text-align: center;
+    height: 40px;
+    font-size: 18px;
+    font-family: 'Nunito Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Rubik', sans-serif;
+    background-color: aquamarine;
+    cursor: pointer;
+}
